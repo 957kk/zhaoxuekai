@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2020-6-8 8:00:48 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.zhaoxk_job.entity.Student" table="STUDENT">
+        <id name="studentID" type="int">
+            <column name="STUDENTID" />
+            <generator class="increment" />
+        </id>
+        <property name="xuehao" type="java.lang.String">
+            <column name="XUEHAO" />
+        </property>
+        <property name="studentName" type="java.lang.String">
+            <column name="STUDENTNAME" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        <property name="sex" type="java.lang.String">
+            <column name="SEX" />
+        </property>
+        <property name="banji" type="java.lang.String">
+            <column name="BANJI" />
+        </property>
+        <property name="birthday" type="java.lang.String">
+            <column name="BIRTHDAY" />
+        </property>
+    </class>
+</hibernate-mapping>
