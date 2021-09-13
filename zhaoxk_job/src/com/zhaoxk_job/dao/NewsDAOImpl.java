@@ -36,6 +36,7 @@ public class NewsDAOImpl implements NewsDAO {
 	}
 
 	// 添加客户
+	@Override
 	public void save(News news) {
 		ht.getSessionFactory().getCurrentSession().setFlushMode(FlushMode.AUTO);
 		getHt().save(news);
@@ -63,6 +64,7 @@ public class NewsDAOImpl implements NewsDAO {
 	}
 
 	// 查找全部客户
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<News> findAll() {
 		String queryString = "from News order by submitTime desc";

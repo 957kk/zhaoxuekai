@@ -23,8 +23,9 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	public HibernateTemplate getHt() {
-		if (ht == null)
+		if (ht == null) {
 			ht = new HibernateTemplate(sessionFactory);
+		}
 		return ht;
 	}
 
@@ -33,6 +34,7 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	// 添加客户
+	@Override
 	public void save(Admin admin) {
 		ht.getSessionFactory().getCurrentSession().setFlushMode(FlushMode.AUTO);
 		getHt().save(admin);
@@ -40,6 +42,7 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	// 删除客户
+	@Override
 	public void delete(int id) {
 		ht.getSessionFactory().getCurrentSession().setFlushMode(FlushMode.AUTO);
 		getHt().delete(findById(id));
@@ -47,6 +50,7 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	// 更新客户
+	@Override
 	public void update(Admin admin) {
 		ht.getSessionFactory().getCurrentSession().setFlushMode(FlushMode.AUTO);
 		getHt().merge(admin);
@@ -54,12 +58,14 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	// 按id查找客户
+	@Override
 	public Admin findById(int id) {
 		Admin admin = (Admin) getHt().get(Admin.class, new Integer(id));
 		return admin;
 	}
 
 	// 查找全部客户
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<Admin> findAll() {
 		String queryString = "from Admin";
